@@ -1,0 +1,11 @@
+@use "./theme" as theme;
+
+@mixin page-background {
+    background-color: theme.$page-background-color;
+}
+
+@mixin mobile-view {
+    margin: 0 auto;
+    max-width: theme.$max-width;
+    // max-height: theme.$max-height;
+}
