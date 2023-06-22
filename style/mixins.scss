@@ -4,8 +4,12 @@
     background-color: theme.$page-background-color;
 }
 
-@mixin mobile-view {
-    margin: 0 auto;
-    max-width: theme.$max-width;
-    // max-height: theme.$max-height;
+@mixin border-bottom {
+    border-bottom: 1px solid theme.$primary-grey;
+}
+
+@mixin flex-spaceBetween-center {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }

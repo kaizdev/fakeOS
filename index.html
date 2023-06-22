@@ -3,36 +3,40 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <script src="./scripts/script.js" defer></script>
+        <script src="./scripts/script.js" defer type="module"></script>
         <link rel="stylesheet" href="./style/style.css" />
-        <!-- <link rel="apple-touch-icon" href="apple-touch-icon.png" /> -->
         <title>fakeOS - iPhone</title>
     </head>
     <body>
         <main>
             <!-- Top Bar HTML -->
-            <section class="top-bar top-bar--home">
-                <div>
-                    Telstra
-                    <img class="top-bar--icons" src="images/wifi-white.png" />
-                </div>
-                <div id="clock">Time</div>
-                <div>
-                    <img class="top-bar--icons" src="./images/battery.png" />
+            <section class="top-bar">
+                <div class="top-bar__clock" id="clock"></div>
+                <div class="top-bar__icon-container">
+                    <div class="top-bar__icon">
+                        <img src="./images/signal-black.png" alt="signal" />
+                    </div>
+                    <div class="top-bar__icon">
+                        <img src="images/wifi-black.png" alt="wifi" />
+                    </div>
+
+                    <div class="top-bar__icon">
+                        <img src="./images/battery-black.png" alt="battery" />
+                    </div>
                 </div>
             </section>
 
             <!-- Middle Section HTML -->
             <section class="middle">
-                <div class="sms">
+                <div class="middle__icon text" id="text">
                     <img
                         src="./images/message.png"
                         class="icon"
-                        alt="sms icon"
+                        alt="text icon"
                     />
                     <p>Text</p>
                 </div>
-                <div class="photos">
+                <div class="middle__icon photos" id="photos">
                     <img
                         src="./images/photos.png"
                         class="icon"
@@ -40,7 +44,7 @@
                     />
                     <p>Photos</p>
                 </div>
-                <div class="notes">
+                <div class="middle__icon notes" id="notes">
                     <img
                         src="./images/notes.png"
                         class="icon"
@@ -48,7 +52,7 @@
                     />
                     <p>Notes</p>
                 </div>
-                <div class="settings">
+                <div class="middle__icon settings" id="settings">
                     <img
                         src="./images/settings.png"
                         class="icon"
@@ -58,33 +62,321 @@
                 </div>
             </section>
 
-            <!-- Bottom row HTML -->
-            <!-- todo: review the icon-container -->
+            <!--^ Modals -->
 
-            <section class="bottom-row">
-                <div class="icon-container">
-                    <img src="./images/phone.png" class="icon" alt="phone" />
+            <!--~ Text Modal -->
+            <div id="textModal" class="modal">
+                <div class="modal-content">
+                    <div class="back-button">&#60; Back</div>
+                    <h1>Messages</h1>
+                    <div class="search-bar">
+                        <img src="./images/search.png" alt="search" />
+                        Search
+                    </div>
+                    <div class="text__container">
+                        <div class="text__icon">
+                            <img src="./images/head1.jpg" alt="head icon" />
+                        </div>
+                        <div class="text--text">
+                            <div class="text__name-row">
+                                <div class="text--title">
+                                    <h4>Chella Boehm</h4>
+                                </div>
+                                <div>9.38AM ></div>
+                            </div>
+                            <div class="text__preview">
+                                <p>
+                                    Would love to hear your thoughts on the
+                                    client's feedback once you've finished
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text__container">
+                        <div class="text__icon">
+                            <img src="./images/head2.jpg" alt="head icon" />
+                        </div>
+                        <div class="text--text">
+                            <div class="text__name-row">
+                                <div class="text--title">
+                                    <h4>Jenna Kovalsky</h4>
+                                </div>
+                                <div>8.53AM ></div>
+                            </div>
+                            <div class="text__preview">
+                                <p>
+                                    Please arrive at the conference venue at 1PM
+                                    to help set up
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text__container">
+                        <div class="text__icon">
+                            <img src="./images/head3.jpg" alt="head icon" />
+                        </div>
+                        <div class="text--text">
+                            <div class="text__name-row">
+                                <div class="text--title">
+                                    <h4>Toby Bradbury</h4>
+                                </div>
+                                <div>Yesterday ></div>
+                            </div>
+                            <div class="text__preview">
+                                <p>
+                                    Just uploaded the latest sketch. Do you mind
+                                    reviewing when you get a chance. Thanks
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text__container">
+                        <div class="text__icon">
+                            <img
+                                src="./images/avatar-default.jpg"
+                                alt="head icon"
+                            />
+                        </div>
+                        <div class="text--text">
+                            <div class="text__name-row">
+                                <div class="text--title">
+                                    <h4>Lucy Jiang</h4>
+                                </div>
+                                <div>Yesterday ></div>
+                            </div>
+                            <div class="text__preview">
+                                <p>
+                                    Lunch sounds good. Are you free on Thursday?
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="icon-container">
-                    <img src="./images/mail.png" class="icon" alt="mail" />
+            </div>
+
+            <!--~ Photos Modal -->
+            <div id="photoModal" class="modal">
+                <div class="modal-content">
+                    <div class="back-button">&#60; Back</div>
+                    <h1>Albums</h1>
+                    <div class="divider-bar"></div>
+                    <div class="search-bar">
+                        <img src="./images/search.png" alt="search" />
+                        Search
+                    </div>
+                    <div class="photo__heading-container">
+                        <div><h3>My Albums</h3></div>
+                        <div class="see-all">See All</div>
+                    </div>
+                    <div class="photo__grid-container">
+                        <div class="photo__album">
+                            <div>
+                                <img
+                                    src="./images/nature.jpg"
+                                    class="photo__icon"
+                                />
+                            </div>
+                            <div>Recents</div>
+                            <div class="photo__count">931</div>
+                        </div>
+
+                        <div class="photo__album">
+                            <div>
+                                <img
+                                    src="./images/friend.jpg"
+                                    class="photo__icon"
+                                />
+                            </div>
+                            <div>Friends</div>
+                            <div class="photo__count">47</div>
+                        </div>
+
+                        <div class="photo__album">
+                            <div>
+                                <img
+                                    src="./images/fav.jpg"
+                                    class="photo__icon"
+                                />
+                            </div>
+                            <div>Favourites</div>
+                            <div class="photo__count">67</div>
+                        </div>
+
+                        <div class="photo__album">
+                            <div>
+                                <img
+                                    src="./images/pet.jpg"
+                                    class="photo__icon"
+                                />
+                            </div>
+                            <div>Pets</div>
+                            <div class="photo__count">8</div>
+                        </div>
+                    </div>
                 </div>
-                <div class="icon-container">
-                    <img src="./images/safari.png" class="icon" alt="safari" />
+            </div>
+
+            <!--~ Notes Modal -->
+            <div id="notesModal" class="modal">
+                <div class="modal-content">
+                    <div class="back-button">&#60; Back</div>
+                    <h1>Notes</h1>
+                    <div class="search-bar">
+                        <img src="./images/search.png" alt="search" />
+                        Search
+                    </div>
+                    <div class="notes__main-container">
+                        <div class="notes--pinned">
+                            <h3>Pinned</h3>
+                            <div class="notes__group-container">
+                                <div class="notes-text-container">
+                                    <div class="notes__heading">
+                                        <h4>Bounce</h4>
+                                    </div>
+                                    <div class="notes__preview">
+                                        Sunday Handwritten Note
+                                    </div>
+                                </div>
+                                <div class="notes__icon">
+                                    <img src="./images/bounce.png" />
+                                </div>
+                            </div>
+
+                            <div class="notes__group-container">
+                                <div class="notes-text-container">
+                                    <div class="notes__heading">
+                                        <h4>Plant Sketch</h4>
+                                    </div>
+                                    <div class="notes__preview">
+                                        Thursday 1 photo
+                                    </div>
+                                </div>
+                                <div class="notes__icon">
+                                    <img src="./images/plant.png" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="notes--today">
+                            <h3>Today</h3>
+                            <div class="notes__group-container">
+                                <div class="notes-text-container">
+                                    <div class="notes__heading">
+                                        <h4>Homemade tacos</h4>
+                                    </div>
+                                    <div class="notes__preview">
+                                        9.41AM Ingredients:
+                                    </div>
+                                </div>
+                                <div class="notes__icon">
+                                    <img src="./images/taco.png" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="icon-container">
-                    <img
-                        src="./images/apple-music.png"
-                        class="icon"
-                        alt="music"
-                    />
+            </div>
+
+            <!--~ Settings Modal -->
+            <div id="settingsModal" class="modal">
+                <div class="modal-content">
+                    <div class="back-button">&#60; Back</div>
+                    <h1>Settings</h1>
+                    <div class="search-bar">
+                        <img src="./images/search.png" alt="search" />
+                        Search
+                    </div>
+                    <div class="setting__option">
+                        <div class="setting__icon">
+                            <img
+                                src="./images/plane.png"
+                                alt="airplane mode icon"
+                            />
+                        </div>
+                        <div class="setting__title">Airplane Mode</div>
+                        <div class="setting__arrow">Toggle</div>
+                    </div>
+
+                    <div class="setting__option">
+                        <div class="setting__icon">
+                            <img
+                                src="./images/wifi-signal.png"
+                                alt="wifi icon"
+                            />
+                        </div>
+                        <div class="setting__title">Wi-Fi</div>
+                        <div class="setting__arrow">HomeWifi ></div>
+                    </div>
+
+                    <div class="setting__option">
+                        <div class="setting__icon">
+                            <img
+                                src="./images/bluetooth.png"
+                                alt="bluetooth icon"
+                            />
+                        </div>
+                        <div class="setting__title">Bluetooth</div>
+                        <div class="setting__arrow">On ></div>
+                    </div>
+
+                    <div class="setting__option">
+                        <div class="setting__icon">
+                            <img
+                                src="./images/cellular.png"
+                                alt="cellular icon"
+                            />
+                        </div>
+                        <div class="setting__title">Cellular</div>
+                        <div class="setting__arrow">></div>
+                    </div>
+
+                    <div class="setting__option">
+                        <div class="setting__icon">
+                            <img
+                                src="./images/hotspot.png"
+                                alt="personal hotspot icon"
+                            />
+                        </div>
+                        <div class="setting__title">Personal Hotspot</div>
+                        <div class="setting__arrow">Off ></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom row HTML -->
+            <section class="bottom">
+                <div class="bottom__icons">
+                    <div class="icon-container">
+                        <img
+                            src="./images/phone.png"
+                            class="icon"
+                            alt="phone"
+                        />
+                    </div>
+                    <div class="icon-container">
+                        <img src="./images/mail.png" class="icon" alt="mail" />
+                    </div>
+                    <div class="icon-container">
+                        <img
+                            src="./images/safari.png"
+                            class="icon"
+                            alt="safari"
+                        />
+                    </div>
+                    <div class="icon-container">
+                        <img
+                            src="./images/apple-music.png"
+                            class="icon"
+                            alt="music"
+                        />
+                    </div>
+                </div>
+                <div class="bottom__icons-text">
+                    <p>Phone</p>
+                    <p>Mail</p>
+                    <p>Safari</p>
+                    <p>Music</p>
                 </div>
             </section>
-            <div class="bottom-row__icon-text">
-                <p>Phone</p>
-                <p>Mail</p>
-                <p>Safari</p>
-                <p>Music</p>
-            </div>
         </main>
     </body>
 </html>

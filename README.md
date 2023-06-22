@@ -19,6 +19,7 @@ With the following functionality:
 
 ## Instructions
 
--   Open apps by clicking on them. Note that only the apps on the desktop will open (not the apps on the bottom row)
+-   As this is an iPhone simulation, the best results will be from using an iPhone viewport
+-   Open apps by clicking on them. Note that only the apps on the desktop will open for this MVP (not the apps on the bottom row)
 -   Menu is opened via the settings app
 -   Close an app by pressing the back button (to go back to the desktop)
