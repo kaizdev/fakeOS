@@ -2,7 +2,9 @@
 
 ## Summary
 
-Create a fakeOS with clickable icons and style to look like an operating system
+Create a fakeOS with clickable icons and style to look like an operating system.
+
+[Netlify deployed link](https://fake-os-kaizdev.netlify.app/)
 
 ## Objectives
 

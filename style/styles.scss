@@ -152,6 +152,9 @@ p {
             width: 60px;
         }
     }
+    &--text {
+        flex-grow: 1;
+    }
     &__preview {
         font-size: 0.8rem;
         p {

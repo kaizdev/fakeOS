@@ -2,7 +2,7 @@ import { showModal } from "./dom-utils.js";
 import { updateTime } from "./utils.js";
 
 updateTime();
-setInterval(updateTime, 60000);
+setInterval(updateTime, 1000);
 
 // Main section elements
 const mainSection = document.querySelector("main");
