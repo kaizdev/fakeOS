@@ -1,0 +1,15 @@
+@use "./theme" as theme;
+
+@mixin page-background {
+    background-color: theme.$page-background-color;
+}
+
+@mixin border-bottom {
+    border-bottom: 1px solid theme.$primary-grey;
+}
+
+@mixin flex-spaceBetween-center {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
